@@ -2388,7 +2388,7 @@ var getDictionaryKey = function (inst) {
  *
  * Each plugin that is injected into `EventsPluginHub` is immediately operable.
  *
- * @public
+ * @src
  */
 var EventPluginHub = {
 
@@ -2399,7 +2399,7 @@ var EventPluginHub = {
 
     /**
      * @param {array} InjectedEventPluginOrder
-     * @public
+     * @src
      */
     injectEventPluginOrder: EventPluginRegistry.injectEventPluginOrder,
 
@@ -5256,7 +5256,7 @@ var ReactClass = {
    *
    * @param {object} spec Class specification (which must define `render`).
    * @return {function} Component constructor function.
-   * @public
+   * @src
    */
   createClass: function (spec) {
     var Constructor = function (props, context, updater) {
@@ -5969,7 +5969,7 @@ var ReactCompositeComponentMixin = {
 
     var updateQueue = transaction.getUpdateQueue();
 
-    // Initialize the public class
+    // Initialize the src class
     var doConstruct = shouldConstruct(Component);
     var inst = this._constructComponent(doConstruct, publicProps, publicContext, updateQueue);
     var renderedElement;
@@ -6247,7 +6247,7 @@ var ReactCompositeComponentMixin = {
 
     // Delete the reference from the instance to this internal representation
     // which allow the internals to be properly cleaned up even if the user
-    // leaks a reference to the public instance.
+    // leaks a reference to the src instance.
     ReactInstanceMap.remove(inst);
 
     // Some existing components rely on inst.props even after they've been
@@ -6490,9 +6490,9 @@ var ReactCompositeComponentMixin = {
    * performs update.
    *
    * @param {ReactElement} nextElement Next element
-   * @param {object} nextProps Next public object to set as properties.
+   * @param {object} nextProps Next src object to set as properties.
    * @param {?object} nextState Next object to set as state.
-   * @param {?object} nextContext Next public object to set as context.
+   * @param {?object} nextContext Next src object to set as context.
    * @param {ReactReconcileTransaction} transaction
    * @param {?object} unmaskedContext
    * @private
@@ -6701,7 +6701,7 @@ var ReactCompositeComponentMixin = {
    * is exposed by refs and returned by render. Can be null for stateless
    * components.
    *
-   * @return {ReactComponent} the public component instance.
+   * @return {ReactComponent} the src component instance.
    * @internal
    */
   getPublicInstance: function () {
@@ -8316,7 +8316,7 @@ function createDOMFactory(tag) {
  * Creates a mapping from supported HTML tags to `ReactDOMComponent` classes.
  * This is also accessible via `React.DOM`.
  *
- * @public
+ * @src
  */
 var ReactDOMFactories = mapObject({
   a: 'a',
@@ -11647,8 +11647,8 @@ module.exports = ReactInputSelection;
 'use strict';
 
 /**
- * `ReactInstanceMap` maintains a mapping from a public facing stateful
- * instance (key) and the internal representation (value). This allows public
+ * `ReactInstanceMap` maintains a mapping from a src facing stateful
+ * instance (key) and the internal representation (value). This allows src
  * methods to accept the user facing instance as an argument and map them back
  * to internal methods.
  */
@@ -13941,7 +13941,7 @@ ReactRef.shouldUpdateRefs = function (prevElement, nextElement) {
   // If either the owner or a `ref` has changed, make sure the newest owner
   // has stored a reference to `this`, and the previous owner (if different)
   // has forgotten the reference to `this`. We use the element instead
-  // of the public this.props because the post processing cannot determine
+  // of the src this.props because the post processing cannot determine
   // a ref. The ref conceptually lives on the element.
 
   // TODO: Should this even be possible? The owner cannot change because
@@ -14444,7 +14444,7 @@ var ReactUpdateQueue = {
    *
    * @param {ReactClass} publicInstance The instance to use as `this` context.
    * @param {?function} callback Called after state is updated.
-   * @param {string} callerName Name of the calling function in the public API.
+   * @param {string} callerName Name of the calling function in the src API.
    * @internal
    */
   enqueueCallback: function (publicInstance, callback, callerName) {
@@ -17467,7 +17467,7 @@ var matchHtmlRegExp = /["'&<>]/;
  *
  * @param  {string} string The string to escape for inserting into HTML
  * @return {string}
- * @public
+ * @src
  */
 
 function escapeHtml(string) {

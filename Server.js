@@ -1,8 +1,10 @@
-var path = require('path');
+var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
+app.use(bodyParser.json());
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static('./view'));
+app.use(express.static('./src'));
 
 app.listen(3000, 'localhost', function(err) {
     if (err) {
